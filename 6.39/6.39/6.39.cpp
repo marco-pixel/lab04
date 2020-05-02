@@ -1,32 +1,44 @@
 
+#include <iostream>
+#include <stdio.h>
 
-#include<iostream>
-using namespace std;
 
+int mcd(int m, int n);
 
-void TOH(int n, char Sour, char Aux, char Des)
-{
-	if (n == 1)
-	{
-		cout << "Move Disk " << n << " from " << Sour << " to " << Des << endl;
-		return;
-	}
+int main() {
+    
+    int primero, segundo;
+    int resultado;
+    int N, M;
 
-	TOH(n - 1, Sour, Des, Aux);
-	cout << "Move Disk " << n << " from " << Sour << " to " << Des << endl;
-	TOH(n - 1, Aux, Sour, Des);
+    
+    printf("Ingrese el valor de M: ");
+    scanf("%d", &primero);
+
+    
+    printf("Ingrese el valor de N: ");
+    scanf("%d", &segundo);
+
+    
+    if (segundo > primero) {
+        N = segundo;
+        M = primero;
+        resultado = mcd(N, M);
+    }
+    else { 
+        M = primero;
+        N = segundo;
+        resultado = mcd(M, N);
+    }
+
+   
+    printf("El MCM de %d y %d es: %d", primero, segundo, resultado);
+
+    
+    return 0;
 }
 
-
-int main()
-{
-	int n;
-
-	cout << "Enter no. of disks:";
-	cin >> n;
-	
-	TOH(n, 'A', 'B', 'C');
-
-	return 0;
+int mcd(int m, int n) {
+    if (n == 0) return m; 
+    return mcd(n, m % n);   
 }
-
