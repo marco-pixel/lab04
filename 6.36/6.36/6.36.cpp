@@ -1,26 +1,23 @@
 
-
 #include <iostream>
+ 
 using namespace std;
-double potencia(int, int);
-int main()
-{
-    int x, y;
-    cout << "Introduzca base: ";
-    cin >> x;
-    do
-    {
-        cout << "Introduzca exponente: ";
-        cin >> y;
-    } while (y < 0);
-    cout << x << " elevado a " << y << " = " << potencia(x, y) << endl;
-    system("pause");
+int fibo(int limite);
+int main() {
+    int l;
+    cout << "ingrese limite: ";
+    cin >> l;
+    fibo(l);
+    return 0;
 }
-double potencia(int x, int y)
-{
-    if (y == 0)
-        return 1;
-    else
-        return x * (potencia(x, y - 1));
+int fibo(int limite) {
+    int a=0, b=1, p;
+    for (int i = 0; i < limite; i++) {
+        cout << b<<",";
+        p = b;
+        b += a;
+        a = p;
+    }
+
+    return 0;
 }
-  
